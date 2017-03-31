@@ -1,0 +1,462 @@
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+html.in-game .no-game-only {
+  display: none;
+}
+html:not(.in-game) .in-game-only {
+  display: none;
+}
+html.in-game .mdl-layout__tab-bar-container {
+  display: none;
+}
+.pull-right {
+  float: right;
+}
+.full-width {
+  width: 100%;
+}
+.card {
+  margin-top: 30px;
+  transition: margin 1s;
+}
+.card > table {
+  width: 100%;
+}
+.card > img {
+  background-position: top center;
+  background-size: 100%;
+  margin-top: 10px;
+  transition: padding 1s;
+  width: calc(100% - 20px);
+}
+.card:hover {
+  margin-top: 0;
+}
+.card:hover > img {
+  padding-bottom: 30px;
+}
+.card > div {
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+}
+.card > div.mdl-data-table {
+  margin: 0;
+  padding: 10px;
+  width: calc(100% - 22px);
+}
+.card > div.mdl-data-table.details {
+  white-space: normal;
+}
+.card table {
+  display: inline-table;
+  width: 100%;
+}
+.card {
+  display: inline-block;
+}
+.card button {
+  margin-top: 10px;
+  width: 100%;
+}
+#yourcard .card > div {
+  margin: 0;
+}
+#players #startgame,
+#players #startwait {
+  margin-bottom: 30px;
+}
+#players #startgame h4 {
+  margin-bottom: 5px;
+}
+#players #startwait > .mdl-progress {
+  margin: 0 auto;
+}
+#players .mdl-grid ul {
+  padding-left: 25px;
+}
+#players .mdl-grid ul i.material-icons {
+  font-size: 15px;
+  width: 20px;
+}
+#playedcards .playedcards {
+  padding: 10px;
+}
+#playedcards .playedcards .card button {
+  display: none;
+}
+#gameslist,
+#gameslist .gameitem {
+  width: 100%;
+}
+#gameslist > .mdl-progress {
+  margin: 0 auto;
+}
+#gameslist .gameitem > div {
+  margin: 0;
+}
+#gameslist .gameitem > .section__circle-container {
+  display: inline-block;
+  width: calc(16.6666666667% + 12px);
+}
+#gameslist .gameitem > .section__text {
+  height: 80px;
+  display: inline-block;
+}
+#gameslist .gameitem:not(:last-child) > .section__text {
+  border-bottom: 1px solid rgba(0,0,0,.13);
+}
+#creategame > form {
+  width: 100%;
+}
+#creategame > form > .mdl-card {
+  margin-bottom: 0;
+}
+#passwordbox,
+#loadingbox {
+  display: none;
+}
+#nicknamebox,
+#passwordbox,
+#loadingbox {
+  background: rgba(0,150,136,0.8);
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 100000;
+}
+#nicknamebox > .mdl-card,
+#passwordbox > .mdl-card,
+#loadingbox > .mdl-card {
+  transform: translateY(-50%);
+  top: 50%;
+  margin: 0 auto;
+  width: 500px;
+  max-width: 90%;
+}
+#nicknamebox > .mdl-card > .mdl-card__title,
+#passwordbox > .mdl-card > .mdl-card__title,
+#loadingbox > .mdl-card > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: rgb(255,171,64);
+}
+#nicknamebox > .mdl-card .mdl-textfield,
+#passwordbox > .mdl-card .mdl-textfield {
+  width: 100%;
+}
+#nicknamebox > .mdl-card .mdl-card__supporting-text p {
+  color: #BDBDBD;
+  font-size: 10px;
+  margin: 0;
+}
+#passwordbox > .mdl-card .mdl-card__supporting-text p {
+  color: #F44336;
+  display: none;
+  margin: 0;
+}
+#nicknamebox > .mdl-card .mdl-card__supporting-text .mdl-textfield {
+  width: 100%;
+}
+#play .section__circle-container__circle {
+  color: white;
+}
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: auto;
+  padding: 4px 0;
+  font-size: 16px;
+  color: rgba(0,0,0, 0.5);
+  border: none;
+  border-bottom: 2px solid rgb(0,150,136);
+}
+select:focus {
+  outline: none;
+}
+.mdl-selectfield select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+}
+#playerlimit,
+#spectatorlimit,
+#deckselect,
+#publicaccess,
+#passwordprotected,
+#passwordaccess {
+  margin-top: 10px;
+}
+#passwordprotected, #passwordaccess {
+  display: none;
+}
+#passwordaccess div {
+  margin: -10px 0;
+  width: 100%;
+}
+.game-content {
+  padding: 0;
+}
+.game-content .mdl-cell.mdl-cell--3-col {
+  margin: 0;
+  width: 25%;
+}
+.game-content .mdl-cell.mdl-cell--9-col {
+  margin: 0;
+  width: 75%;
+}
+.mdl-totd .mdl-layout__header-row {
+  padding-left: 40px;
+}
+.mdl-totd .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
+  font-size: inherit;
+}
+.mdl-totd .mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-totd .mdl-layout.is-small-screen .mdl-layout__tab-bar .mdl-button {
+  display: none;
+}
+.mdl-totd .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
+.mdl-totd .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
+  overflow: visible;
+}
+.mdl-totd .mdl-layout__tab-bar-container {
+  height: 64px;
+}
+.mdl-totd .mdl-layout__tab-bar {
+  padding: 0;
+  padding-left: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.mdl-totd .mdl-layout__tab-bar .mdl-layout__tab {
+  height: 64px;
+  line-height: 64px;
+}
+.mdl-totd .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+  background-color: white;
+  height: 4px;
+}
+.mdl-totd main > .mdl-layout__tab-panel {
+  padding: 8px;
+  padding-top: 48px;
+}
+.mdl-totd .mdl-card {
+  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mdl-totd .mdl-card > * {
+  height: auto;
+}
+.mdl-totd .mdl-card .mdl-card__supporting-text {
+  margin: 40px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  color: inherit;
+  width: calc(100% - 80px);
+}
+.mdl-totd.mdl-totd .mdl-card__supporting-text h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.mdl-totd .mdl-card__actions {
+  margin: 0;
+  padding: 4px 40px;
+  color: inherit;
+}
+.mdl-totd .mdl-card__actions a {
+  color: #00BCD4;
+  margin: 0;
+}
+.mdl-totd .mdl-card__actions a:hover,
+.mdl-totd .mdl-card__actions a:active {
+  color: inherit;
+  background-color: transparent;
+}
+.mdl-totd .mdl-card__supporting-text + .mdl-card__actions {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.mdl-totd #actionbutton {
+  color: #FFF;
+  position: absolute;
+  right: 40px;
+  top: 36px;
+  z-index: 999;
+}
+.mdl-totd .mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+.mdl-totd section.section--center {
+  max-width: 860px;
+}
+.mdl-totd #features section.section--center {
+  max-width: 620px;
+}
+.mdl-totd section > header{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.mdl-totd section > .section__play-btn {
+  min-height: 200px;
+}
+.mdl-totd section > header > .material-icons {
+  font-size: 3rem;
+}
+.mdl-totd section > button {
+  position: absolute;
+  z-index: 99;
+  top: 8px;
+  right: 8px;
+}
+.mdl-totd section .section__circle {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+}
+.mdl-totd section .section__text {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  padding-top: 8px;
+}
+.mdl-totd section .section__text h5 {
+  font-size: inherit;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+.mdl-totd section .section__text a {
+  text-decoration: none;
+}
+.mdl-totd section .section__circle-container > .section__circle-container__circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  margin: 8px 0;
+}
+.mdl-totd section.section--footer .section__circle--big {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 8px 32px;
+}
+.mdl-totd .is-small-screen section.section--footer .section__circle--big {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 8px 16px;
+}
+.mdl-totd section.section--footer {
+  padding: 64px 0;
+  margin: 0 -8px -8px -8px;
+}
+.mdl-totd section.section--center .section__text:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,.13);
+}
+.mdl-totd .mdl-card .mdl-card__supporting-text > h3:first-child {
+  margin-bottom: 24px;
+}
+.mdl-totd .mdl-layout__tab-panel:not(#overview) {
+  background-color: white;
+}
+.mdl-totd #features section {
+  margin-bottom: 72px;
+}
+.mdl-totd #features h4, #features h5 {
+  margin-bottom: 16px;
+}
+.mdl-totd .toc {
+  border-left: 4px solid #C1EEF4;
+  margin: 24px;
+  padding: 0;
+  padding-left: 8px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mdl-totd .toc h4 {
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+.mdl-totd .toc a {
+  color: #4DD0E1;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 28px;
+  display: block;
+}
+.mdl-totd .mdl-menu__container {
+  z-index: 99;
+}
